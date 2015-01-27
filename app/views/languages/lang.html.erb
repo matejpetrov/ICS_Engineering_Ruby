@@ -1,0 +1,34 @@
+
+<p>
+<%= link_to_unless I18n.locale == :en, "English", locale: :en %>
+|
+<%= link_to_unless I18n.locale == :fr, "French", locale: :fr %>
+|
+<%= link_to_unless I18n.locale == :mk, "Macedonian", locale: :mk %>
+</p>
+
+<h1><%= t :hello %></h1>
+
+<p><%= t :paragraph %></p>
+
+
+<p><%= flash[:notice] %></p>
+
+
+<input type="hidden" name="hidden_url" id="hidden_url" value="<%= ajax_url() %>" />
+
+<div class="DOM_to_append">
+	<p class="data_to_send">This is the data i would like to send.</p>
+</div>
+
+<p>
+	<button name="btnAjax" id="btnAjax" onclick="ajax_tryout();">AJAX</button>
+</p>
+
+<p><b>I18n.locale:</b> 
+<%= I18n.locale %>
+</p>
+
+
+
+
