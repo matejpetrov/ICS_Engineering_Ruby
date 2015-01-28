@@ -8,15 +8,17 @@ function ajax_tryout(){
 	$.ajax({
 
 		url: ajax_url,
-		type: 'POST',
+		type: 'post',
 		dataType: 'json',
 		data: {
 			'data_to_send': data_to_send
 		},
 
 		success: function(data){		
+			
+			console.log(data);
 			if(data){
-				$(".DOM_to_append").html(data);
+				$(".DOM_to_append").append("<p>" + data.back + "</p>");
 			}
 			else {
 				$(".DOM_to_append").html("Success with no data");	
@@ -29,6 +31,8 @@ function ajax_tryout(){
 
 
 	});
+
+	console.log(ajax_url);
 
 	//alert("AJAX " + ajax_url);
 
