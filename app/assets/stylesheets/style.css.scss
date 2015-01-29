@@ -1,2 +1,65 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+.sign-up-form-container{
+
+	padding-top: 20px;
+	
+	h2{
+		text-align: center;
+		margin-bottom: 40px;
+	}
+	
+}
+
+
+/* Index Admin page style START */
+
+div.row > a.items{
+	color: #CD5A01;	
+}
+
+div.row > a.items:hover{
+	color: #FFFFFF;
+}
+
+div.control-panel-item {
+
+    background-color: #ffffff;
+    border: 1px solid;    
+    border-radius: 35px;
+    
+    text-align: center;
+    
+    height: 250px;
+    padding-top: 30px;
+
+    //specifies a margin in percent of the width of the containing element.
+    margin-left: 4%;
+    margin-right: 50px; 
+    margin-bottom: 60px;
+
+}
+
+div.control-panel-item:hover {
+    background-color: #CD5A01;
+}
+
+.fa-custom {
+    font-size: 10em !important;
+}
+
+/* Index Admin page style END */
+
+
+/* Manage users style START */
+
+div.admin-holder {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+
+/* Manage users style END */

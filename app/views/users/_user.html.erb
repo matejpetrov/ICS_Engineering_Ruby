@@ -1,0 +1,22 @@
+<tr class="table-row" id="">
+	<td><%= user.username %></td>
+	<td><%= user.name %></td>
+	<td><%= user.surname %></td>					
+	<td><%= user.email %></td>					
+	<td id="role">
+		No role yet
+	</td>					
+	
+	<!-- a table column that tells us whether the user is authenticated or not, meaning whether he recieved an email and clicked on
+		the link
+	-->
+	<td>
+		No authentication yet
+	</td>									
+	<td>					
+		<!-- if condition whether these buttons should be enabled or not, depending on whether the user is protected or not. -->
+
+		<button id="changeRole" class="btn btn-primary btn-block">Change Role</button>
+		<button id="delete-user" class="btn btn-danger delete btn-block" data-toggle="modal" data-target="#modalDelete">Delete</button>		
+	</td>
+</tr>

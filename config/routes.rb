@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'static_pages/index_admin'
+
+  #get 'users/new'
+
   #get 'languages/lang'
 
 
@@ -11,5 +15,10 @@ Rails.application.routes.draw do
 
   get 'languages/lang', path: "/:locale/lang"
   post 'ajax' => "languages#ajax"
+
+  resources :users
+
+
+  
 
 end
