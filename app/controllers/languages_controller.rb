@@ -4,8 +4,10 @@ class LanguagesController < ApplicationController
   respond_to :html, :xml, :json
  
 
-  def lang    
+  def lang 
     flash[:notice] = "This is the notice"
+    @env = Rails.env
+    @address = "No address yet"
   end
 
 
@@ -29,14 +31,24 @@ class LanguagesController < ApplicationController
     #render @json
     
     #render :nothing => true      
-    
- 
 
   end
 
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+
+  def send_email
+
+    @address = "petrov_matej@yahoo.com"    
+    @email_settings = YAML::load(File.open("#{Rails.root.to_s}/config/email.yml"))
+
+    SignUpMailer.sample_email(@address).deliver
+
+    
+    
   end
 
 

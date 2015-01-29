@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   get 'languages/lang', path: "/:locale/lang"
   post 'ajax' => "languages#ajax"
+  get 'languages/send_email'
 
   resources :users
 

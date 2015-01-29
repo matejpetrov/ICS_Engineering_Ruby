@@ -1,6 +1,6 @@
 
 
-function ajax_tryout(){
+function ajax_tryout(){	
 
 	var ajax_url = $("#hidden_url").val();
 	var data_to_send = $(".data_to_send").html();

@@ -14,8 +14,14 @@
 
 <p><%= flash[:notice] %></p>
 
+<% if @address != ""  %>
+	
+	<p><%= @address %></p>
 
-<input type="hidden" name="hidden_url" id="hidden_url" value="<%= ajax_url() %>" />
+<% end %>
+
+<input type="hidden" name="hidden_url" id="hidden_url" value="<%= ajax_url(); %>" />
+<input type="hidden" name="hidden_env" id="hidden_env" value="<%= @env %>" />
 
 <div class="DOM_to_append">
 	<p class="data_to_send">This is the data i would like to send.</p>
@@ -26,7 +32,10 @@
 </p>
 
 <%= link_to "Sign up", new_user_path %>
+<br/>
 <%= link_to "Index Admin page", static_pages_index_admin_path %>
+<br/>
+<%= link_to "Send mail", languages_send_email_path %>
 
 
 <p><b>I18n.locale:</b> 
