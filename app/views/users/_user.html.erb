@@ -10,8 +10,8 @@
 	<!-- a table column that tells us whether the user is authenticated or not, meaning whether he recieved an email and clicked on
 		the link
 	-->
-	<td>
-		No authentication yet
+	<td>		
+		<%= user.activated ? "Yes" : "No" %>		
 	</td>									
 	<td>					
 		<!-- if condition whether these buttons should be enabled or not, depending on whether the user is protected or not. -->
