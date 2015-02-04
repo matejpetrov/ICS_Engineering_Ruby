@@ -28,7 +28,11 @@ class UsersController < ApplicationController
 
   def edit
 
-    #should get the id of the current user. 
+    @user = User.find_by(id: current_user.id)
+
+    if !@user
+      redirect_to root_url    
+    end
 
   end
 
@@ -49,6 +53,25 @@ class UsersController < ApplicationController
 
       end
 
+    end
+
+  end
+
+
+  def verify_old_password
+
+    password = params[:password]
+
+    user = current_user
+
+    if user && user.authenticate(password)
+      @json = { 'success' => true }      
+    else
+      @json = { 'success' => false }
+    end
+
+    respond_to do |format|
+      format.json { render json: @json }
     end
 
   end

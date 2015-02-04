@@ -126,3 +126,23 @@ div.admin-holder {
 
 
 /* Index admin page header END */
+
+
+/* Change password and log in page START */
+
+.log-in-container{
+    padding-top: 100px;
+
+    h2{
+        text-align: center;
+        margin-bottom: 40px;
+    }
+}
+
+
+.form-not-visible{
+    display: none;
+}
+
+
+/* Change password and log in page END */

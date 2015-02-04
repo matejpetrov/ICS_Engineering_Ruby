@@ -33,9 +33,10 @@
 
 <%= link_to "Sign up", new_user_path %>
 <br/>
+<!-- If condition to check whether the user is loggen in or not. Depending on that we either show Log in or Admin  -->
 <%= link_to "Index Admin page", static_pages_index_admin_path %>
 <br/>
-<%= link_to "Send mail", languages_send_email_path %>
+<%= link_to "Log in", login_new_path %>
 
 
 <p><b>I18n.locale:</b> 

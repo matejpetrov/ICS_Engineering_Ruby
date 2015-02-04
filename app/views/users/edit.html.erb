@@ -1,0 +1,50 @@
+
+<%= javascript_include_tag "ajax_functions" %>
+
+<div class="container log-in-container">
+
+ 	<input type="hidden" id="verify_url" value="<%= users_verify_old_password_url %>" />
+ 	
+
+	<div class="row">
+		
+		<div class="col-md-6 col-md-offset-4 col-sm-8 col-sm-offset-2 col-lg-4 col-lg-offset-4">		
+			
+			<h2>Enter your old password</h2>
+
+			
+			<div class="col-md-12">
+				<div class="form-group">
+					<label>Old Password</label>
+					<input type="password" class="form-control" name="old_password" id="old_password" />
+				</div>
+
+				<button class="btn btn-primary" id="btn-verify-old-password">Verify</button>
+
+			</div>
+
+
+			<div class="col-md-12 form-not-visible">
+				<%= form_for(@user) do |f| %>
+
+					<div class="form-group">
+						<%= f.label :password %>
+						<%= f.password_field :password,  class: 'form-control', readonly: true %>
+					</div>
+
+					<div class="form-group">
+						<%= f.label :password_confirmation %>
+						<%= f.password_field :password_confirmation,  class: 'form-control', readonly: true %>
+					</div>				
+
+					<%= f.submit "Submit", class: "btn btn-primary" %>
+
+				<% end %>
+			</div>			
+
+		</div>
+
+	</div>
+
+
+</div>

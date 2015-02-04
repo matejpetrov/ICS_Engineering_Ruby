@@ -21,6 +21,12 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit, :update]  
 
   delete 'users/destroy', path: "destroy/:id"
+
+
+  get 'login/new' => 'sessions#new'
+  post 'login/create' => 'sessions#create'
+  get 'login/destroy' => 'sessions#destroy'
   
+  post 'users/verify_old_password' => 'users#verify_old_password'
 
 end

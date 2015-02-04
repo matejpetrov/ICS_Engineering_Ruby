@@ -10,7 +10,7 @@
 			<ul class="admin-header">
 				
 				<li class="settings">
-					Settings
+					<%= current_user.name + " " + current_user.surname %>
 				</li>
 
 				<li class="dropdown">
@@ -18,10 +18,10 @@
 					</a>
 					<ul class="dropdown-menu admin-menu" role="menu">
 						<li>
-							<a id="settings" href="<%=  %>">Change password</a>
+							<a id="settings" href="<%= edit_user_path(current_user.id) %>">Change password</a>
 						</li>								
 						<li>
-							<a id="logout" href="#">Logout</a>
+							<a id="logout" href="<%= login_destroy_path %>">Logout</a>
 						</li>
 					</ul>
 				</li>
