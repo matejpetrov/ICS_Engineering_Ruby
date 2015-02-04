@@ -30,8 +30,7 @@ class AccountActivationsController < ApplicationController
 
     @user = User.find_by(id: id)
 
-    if @user
-      debugger
+    if @user      
       if @user.set_password(password_params)
         flash[:notice] = "Your password was successfully set!"
         redirect_to static_pages_index_admin_url
@@ -40,9 +39,7 @@ class AccountActivationsController < ApplicationController
       end
     else
       render 'edit'
-    end
-
-    debugger
+    end    
 
   end
 

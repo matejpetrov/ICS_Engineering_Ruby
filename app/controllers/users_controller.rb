@@ -3,11 +3,7 @@ class UsersController < ApplicationController
   before_filter :set_host_from_request, only: [:create]
 
   def index
-
     @users = User.all
-
-
-
   end
 
   def new
@@ -28,6 +24,34 @@ class UsersController < ApplicationController
     end
     
   end  
+
+
+  def edit
+
+    #should get the id of the current user. 
+
+  end
+
+  def destroy
+
+    @json = { 'success' => "Success!" }
+
+
+    id = params[:id]
+
+    @user = User.find_by(id: id)    
+
+    respond_to do |format|
+
+      if @user.destroy
+        format.json { render json: @json }
+      else
+
+      end
+
+    end
+
+  end
 
   private 
 

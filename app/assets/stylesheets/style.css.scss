@@ -63,3 +63,66 @@ div.admin-holder {
 
 
 /* Manage users style END */
+
+
+/* Index admin page header START */
+
+.header-fluid{
+    background-color: #CD5A01;
+    height: 29px;
+}
+
+.header{
+    text-align: right;    
+    font-size: 18px;
+}
+
+
+.header > .row > a{
+    color: #ffffff;
+}
+
+.header > .row > a:hover{
+    color: #331400;
+}
+
+.admin-header{    
+    list-style: none;
+    display: inline;
+    .settings{
+        margin-right: 5px;        
+        color: #ffffff;
+    }
+}
+
+.admin-header > li{
+    display: inline;
+}
+
+.admin-header > .dropdown > a{
+    color: #ffffff;
+}
+
+.admin-header > .dropdown > a:hover{
+    color: #331400;
+}
+
+.admin-menu{
+    left: -73px;
+    background-color: #ffffff;
+}
+
+.admin-menu > li > a{
+    color: #CD5A01;
+}
+
+.admin-menu > li > a:hover{
+    background-color: #CD5A01;
+    color: #ffffff;
+    border-left: solid 2px;
+    border-right: solid 2px;
+    border-color: #331400;
+}
+
+
+/* Index admin page header END */

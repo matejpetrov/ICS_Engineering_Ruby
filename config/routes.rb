@@ -17,10 +17,10 @@ Rails.application.routes.draw do
   post 'ajax' => "languages#ajax"
   get 'languages/send_email'
 
-  resources :users
-  resources :account_activations, only: [:edit, :update]
+  resources :users, except: [:destroy]
+  resources :account_activations, only: [:edit, :update]  
 
-
+  delete 'users/destroy', path: "destroy/:id"
   
 
 end

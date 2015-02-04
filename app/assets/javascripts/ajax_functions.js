@@ -36,5 +36,4 @@ function ajax_tryout(){
 
 	//alert("AJAX " + ajax_url);
 
-
 }

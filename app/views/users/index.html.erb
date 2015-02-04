@@ -1,6 +1,14 @@
-<div class="container">
-	
 
+<%= javascript_include_tag "delete_user" %>
+
+<%= render 'shared/admin_header' %>
+
+<script type="text/javascript">
+
+</script>
+
+<div class="container">	
+	<input type="hidden" id="hidden_url" value="<%= users_destroy_url(0) %>" />
 
 	<div class="row">
 		<div class="col-md-12">
@@ -43,6 +51,24 @@
 
 	</div>
 
-
+	<!-- Modal -->
+	<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
+				</div>
+				<div class="modal-body">
+					<p>Are you sure you want to delete the selected user?</p>
+					<p>This operation is not reversable...</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal" id="delete-cancel-btn">Close</button>
+					<button type="button" class="btn btn-danger" id="delete-user-confirm">Delete</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 </div>
