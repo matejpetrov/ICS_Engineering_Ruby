@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   end
 
 
-  def create    
+  def create
     
     hash = { :role => params[:role] }
 
@@ -80,6 +80,29 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.json { render json: @json }
     end
+
+  end
+
+
+  #function that checks whether a user with username received in the params exists in the database. If so, 
+  #it returns true, otherwise false. 
+  def check_username
+    
+    username = params[:username]
+
+    
+
+    respond_to do |format|  
+
+      if User.exists?(:username => username)
+        @json = { 'result' => 'true', 'data' => 'The entered username is ' + username }        
+      else
+        @json = { 'result' => 'false', 'data' => 'You entered poorly' }
+      end
+
+      format.json { render json: @json }
+
+    end    
 
   end
 

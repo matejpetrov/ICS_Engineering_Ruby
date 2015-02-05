@@ -28,5 +28,6 @@ Rails.application.routes.draw do
   get 'login/destroy' => 'sessions#destroy'
   
   post 'users/verify_old_password' => 'users#verify_old_password'
+  post 'users/check_username' => 'users#check_username'
 
 end
