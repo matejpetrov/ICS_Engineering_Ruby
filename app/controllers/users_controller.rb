@@ -8,13 +8,20 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+
+    @roles = [['Super User', 1], ['Normal User', 2]]
+
   end
 
 
-  def create
-    @user = User.new(user_params)
+  def create    
+    
+    hash = { :role => params[:role] }
+
+    hash = hash.merge(user_params)
+    @user = User.new(hash)
     @user.password = "matej123"    
-    #debugger
+    
     if @user.save  
       SignUpMailer.sample_email(@user).deliver
       flash[:notice] = "An email was sent to the entered address. Check email for activation link."
@@ -79,7 +86,7 @@ class UsersController < ApplicationController
   private 
 
     def user_params
-      params.require(:user).permit(:name, :surname, :email, :username)
+      params.require(:user).permit(:name, :surname, :email, :username, :role)
     end
 
     def set_host_from_request

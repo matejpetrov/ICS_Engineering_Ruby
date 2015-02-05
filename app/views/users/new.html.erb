@@ -13,30 +13,39 @@
 
 				<%= render 'shared/error_messages', object: f.object %>
 
-				<div class="form-group">
+				<div class="form-group col-md-12">
 					<%= f.label :name %>
   					<%= f.text_field :name,  class: 'form-control'%>
 				</div>
 
-				<div class="form-group">
+				<div class="form-group col-md-12">
 					<%= f.label :surname %>
   					<%= f.text_field :surname,  class: 'form-control'%>
 				</div>
 
-				<div class="form-group">
+				<div class="form-group col-md-12">
 					<%= f.label :email %>
   					<%= f.text_field :email,  class: 'form-control'%>
 				</div>
 
-				<div class="form-group">
+				<div class="form-group col-md-12">
 					<%= f.label :username %>
   					<%= f.text_field :username,  class: 'form-control'%>
 				</div>
 	
 
+				<div class="form-group col-md-4">
+					
+					<%= f.label :role %>
+					<%= select_tag(:role, options_for_select(@roles), class: 'form-control') %>
+										
+				</div>
+
 				<!-- Removed the fields for password and password repeat. -->				
 
-				<%= f.submit "Submit", class: "btn btn-primary" %>
+				<div class="col-md-12">
+					<%= f.submit "Submit", class: "btn btn-primary" %>
+				</div>				
 
 			<% end %>
 

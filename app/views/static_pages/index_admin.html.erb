@@ -51,23 +51,27 @@
 
 		</a>
 
-		<a href="<%= new_user_path %>" class="items">
+		<% if current_user.role == 1 %>
+
+			<a href="<%= new_user_path %>" class="items">
 			
-			<div class="col-md-3 control-panel-item">
-				<i class="fa fa-user fa-custom" ></i></br>
-				<span class="text">Create new user</span>
-			</div>
+				<div class="col-md-3 control-panel-item">
+					<i class="fa fa-user fa-custom" ></i></br>
+					<span class="text">Create new user</span>
+				</div>
 
-		</a>
+			</a>
 
-		<a href="<%= users_path %>" class="items">
-			
-			<div class="col-md-3 control-panel-item">
-				<i class="fa fa-users fa-custom" ></i></br>
-				<span class="text">Manage users</span>
-			</div>
+			<a href="<%= users_path %>" class="items">
+				
+				<div class="col-md-3 control-panel-item">
+					<i class="fa fa-users fa-custom" ></i></br>
+					<span class="text">Manage users</span>
+				</div>
 
-		</a>
+			</a>
+
+		<% end %>
 
 	</div>
 

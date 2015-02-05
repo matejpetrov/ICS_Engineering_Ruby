@@ -16,8 +16,7 @@ class SessionsController < ApplicationController
       if user.activated
         log_in user
         @current_user = user
-        sess = session[:user_id]
-        debugger
+        sess = session[:user_id]        
         redirect_to static_pages_index_admin_url
       else 
         message = "The account is not activated. Please check your email"
