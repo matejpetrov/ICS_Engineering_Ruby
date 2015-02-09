@@ -90,19 +90,35 @@ class UsersController < ApplicationController
     
     username = params[:username]
 
-    
-
     respond_to do |format|  
 
       if User.exists?(:username => username)
-        @json = { 'result' => 'true', 'data' => 'The entered username is ' + username }        
+        @json = { 'result' => 'true' }        
       else
-        @json = { 'result' => 'false', 'data' => 'You entered poorly' }
+        @json = { 'result' => 'false' }
       end
 
       format.json { render json: @json }
 
     end    
+
+  end
+
+  def check_email
+
+    email = params[:email]
+
+    respond_to do |format|  
+
+      if User.exists?(:email => email)
+        @json = { 'result' => 'true' }        
+      else
+        @json = { 'result' => 'false' }
+      end
+
+      format.json { render json: @json }
+
+    end 
 
   end
 

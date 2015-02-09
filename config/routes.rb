@@ -29,5 +29,6 @@ Rails.application.routes.draw do
   
   post 'users/verify_old_password' => 'users#verify_old_password'
   post 'users/check_username' => 'users#check_username'
+  post 'users/check_email' => 'users#check_email'
 
 end

@@ -2,6 +2,9 @@
 @import "bootstrap";
 
 
+
+/* Sign up page START */
+
 .sign-up-form-container{
 
 	padding-top: 20px;
@@ -12,6 +15,14 @@
 	}
 	
 }
+
+#username-notification, #email-notification{
+
+    margin-left: -25px;
+
+}
+
+/* Sign up page END */
 
 
 /* Index Admin page style START */
