@@ -43,6 +43,29 @@ class UsersController < ApplicationController
 
   end
 
+  def update
+
+    if(params[:cancel])
+      redirect_to static_pages_index_admin_url
+    else
+
+
+      @user = User.find_by(id: params[:id])
+
+      if @user      
+        password_params = { :password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation] }
+        if !@user.set_password(password_params)          
+          render 'edit'
+        end
+      else
+        render 'edit'
+      end
+
+    end    
+
+  end
+
+
   def destroy
 
     @json = { 'success' => "Success!" }
@@ -104,6 +127,8 @@ class UsersController < ApplicationController
 
   end
 
+  #function that checks whether a user with email received in the params exists in the database. If so, 
+  #it returns true, otherwise false. 
   def check_email
 
     email = params[:email]

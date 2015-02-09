@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+
+  get 'password_resets/edit'
+
   get 'static_pages/index_admin'
 
   #get 'users/new'
@@ -19,6 +23,7 @@ Rails.application.routes.draw do
 
   resources :users, except: [:destroy]
   resources :account_activations, only: [:edit, :update]  
+  resources :password_resets, only: [:new, :edit, :update] 
 
   delete 'users/destroy', path: "destroy/:id"
 
@@ -30,5 +35,7 @@ Rails.application.routes.draw do
   post 'users/verify_old_password' => 'users#verify_old_password'
   post 'users/check_username' => 'users#check_username'
   post 'users/check_email' => 'users#check_email'
+
+  post 'password_resets/check_email' => 'password_resets#check_email'
 
 end

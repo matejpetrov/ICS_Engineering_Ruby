@@ -17,7 +17,11 @@
 				<div class="form-group">
 					<%= f.label :password %>
 					<%= f.password_field :password,  class: 'form-control'%>
-				</div>				
+				</div>			
+
+				<%= link_to "Forgot your passsword?", new_password_reset_path %>
+
+				<br/><br/>
 
 				<%= f.submit "Submit", class: "btn btn-primary" %>
 

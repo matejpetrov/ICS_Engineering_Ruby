@@ -13,10 +13,13 @@
 			<h2>Enter your old password</h2>
 
 			
-			<div class="col-md-12">
-				<div class="form-group">
+			<div class="col-md-12" id="verification-form">
+				<div class="form-group has-feedback">
 					<label>Old Password</label>
-					<input type="password" class="form-control" name="old_password" id="old_password" />
+					<input type="password" class="form-control" name="old_password" id="old_password" aria-describedby="inputPasswordWarning" />
+					<span class="form-control-feedback"><i id="password-notification" class='fa'></i></span>
+  					<span id="inputPasswordWarning" class="sr-only"></span>
+
 				</div>
 
 				<button class="btn btn-primary" id="btn-verify-old-password">Verify</button>
@@ -24,20 +27,23 @@
 			</div>
 
 
-			<div class="col-md-12 form-not-visible">
+			<div class="col-md-12" id="edit-form">
 				<%= form_for(@user) do |f| %>
+
+					<%= render 'shared/error_messages', object: f.object %>
 
 					<div class="form-group">
 						<%= f.label :password %>
-						<%= f.password_field :password,  class: 'form-control', readonly: true %>
+						<%= f.password_field :password,  class: 'form-control' %>
 					</div>
 
 					<div class="form-group">
 						<%= f.label :password_confirmation %>
-						<%= f.password_field :password_confirmation,  class: 'form-control', readonly: true %>
+						<%= f.password_field :password_confirmation,  class: 'form-control' %>
 					</div>				
 
-					<%= f.submit "Submit", class: "btn btn-primary" %>					
+					<%= f.submit "Submit", class: "btn btn-primary" %>
+					<button class="btn btn-default" name="cancel">Cancel</button>					
 
 				<% end %>
 			</div>			
