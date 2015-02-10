@@ -7,6 +7,12 @@
 			
 			<h2>Enter your info</h2>
 
+			<% if @alert_message != nil %>
+				<div class="alert alert-danger">
+					<%= @alert_message %>
+				</div>
+			<% end %>
+
 			<%= form_for(:session, url: login_create_path) do |f| %>
 
 				<div class="form-group">

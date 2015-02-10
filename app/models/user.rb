@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
   #we create a class attribute called activation_token. This attribute will not be saved to the database, it is 
   #just the not hashed version of the one that will be saved, called activation_digest
-  attr_accessor :activation_token, :password_reset_token
+  attr_accessor :activation_token, :reset_password_token
 
 
   before_create :create_activation_digest
@@ -46,6 +46,11 @@ class User < ActiveRecord::Base
     update_attributes(password_params)
   end
 
+  def create_password_digest
+    self.reset_password_token = User.new_token
+    #we have to update the password digest because the user is already created. 
+    update_attribute(:reset_password_digest,  User.digest(reset_password_token))
+  end
 
   private
 
@@ -53,12 +58,7 @@ class User < ActiveRecord::Base
     def create_activation_digest
       self.activation_token = User.new_token
       self.activation_digest = User.digest(activation_token)
-    end
-
-    def create_password_digest
-      self.password_reset_token = User.new_token
-      self.password_reset_digest = User.digest(password_reset_token)
-    end
+    end    
 
 
 end
