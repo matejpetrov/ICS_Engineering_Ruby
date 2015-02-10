@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150209134301) do
+ActiveRecord::Schema.define(version: 20150210101246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(version: 20150209134301) do
     t.boolean  "activated",             default: false
     t.datetime "activated_at"
     t.string   "reset_password_digest"
+  end
+
+  create_table "words", force: :cascade do |t|
+    t.integer  "lang"
+    t.string   "word_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

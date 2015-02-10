@@ -1,0 +1,135 @@
+<%= render 'shared/admin_header' %>
+
+<div class="container">
+	
+	<div class="row admin-holder">
+		<h2>Manage Homepage Slider Words</h2>
+	</div>	
+
+	<div class="row words-separate" style="text-align: center;">
+		
+		<!-- English Words -->
+		<div class="col-md-6">
+			
+			<div class="row">
+				<h2>Words - English</h2>
+
+				<div class="words-container">
+					
+					<ul id="english" class="word-list">
+
+						<% @words_english.each do |word| %>
+							<li id="<%= word.id %>">
+								<input type="checkbox" value="<%= word.id %>" />
+								<%= word.word_name %>
+							</li>
+						<% end %>
+
+					</ul>
+
+				</div>			
+
+			</div>
+
+			<div class="row word-buttons">
+
+				<div class="col-md-3 col-md-offset-3">
+					<button class="btn btn-success" id="add-en-word" data-toggle="modal" data-target="#modalAddWords">Add Word(s)</button>
+				</div>
+
+				<div class="col-md-3">
+					<button class="btn btn-danger" id="delete-en-word" data-toggle="modal" data-target="#modalDeleteWords">Delete Word(s)</button>
+				</div>
+
+			</div>
+
+		</div>
+		<!-- English Words -->
+
+		<!-- Macedonian Words -->
+		<div class="col-md-6">
+			
+			<div class="row">
+				
+				<h2>Words - Macedonian</h2>
+
+				<div class="words-container">
+					
+					<ul id="macedonian" class="word-list">
+					
+						<% @words_macedonian.each do |word| %>
+							<li id="<%= word.id %>">
+								<input type="checkbox" value="<%= word.id %>" />
+								<%= word.word_name %>
+							</li>
+						<% end %>
+
+					</ul>
+
+				</div>
+
+			</div>
+
+			<div class="row word-buttons">
+				
+				<div class="col-md-3 col-md-offset-3">
+					<button class="btn btn-success" id="add-mk-word">Add Word(s)</button>
+				</div>
+
+				<div class="col-md-3">
+					<button class="btn btn-danger" id="delete-mk-word">Delete Word(s)</button>
+				</div>
+
+			</div>
+
+		</div>
+		<!-- Macedonian Words -->
+
+	</div>
+
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalAddWords" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Add new words</h4>
+			</div>
+			<div class="modal-body">
+				
+				<h5>Enter the new words separated by newline (ENTER)</h5>
+
+				<textarea class="form-control" id="new-words"></textarea>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal" id="delete-cancel-btn">Save</button>
+				<button type="button" class="btn btn-danger" id="delete-user-confirm" data-dismiss="modal">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="modal fade" id="modalDeleteWords" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
+			</div>
+			<div class="modal-body">
+				<p>Are you sure you want to delete the selected words?</p>
+				<p>This operation is not reversable...</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal" id="delete-cancel-btn">Close</button>
+				<button type="button" class="btn btn-danger" id="delete-words-confirm">Delete</button>
+			</div>
+		</div>
+	</div>
+</div>

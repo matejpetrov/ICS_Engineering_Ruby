@@ -8,5 +8,11 @@ class StaticPagesController < ApplicationController
     
   end
 
+  #function that loads the view that displays the menu for choosing whether to add homepage slider image, sidebar image, or
+  #to add words. 
+  def images_words_menu    
+
+  end
+
 
 end

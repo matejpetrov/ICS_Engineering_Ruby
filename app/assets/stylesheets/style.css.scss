@@ -71,6 +71,10 @@ div.admin-holder {
     margin-bottom: 20px;
 }
 
+div.words-separate{
+    text-align: center;    
+}
+
 
 
 /* Manage users style END */
@@ -157,3 +161,30 @@ div.admin-holder {
 
 
 /* Change password and log in page END */
+
+
+/* Words page style START */
+
+.words-container{    
+    margin-top: 45px;
+    padding-right: 55px;
+    height: 300px;
+    overflow: auto;
+
+}
+
+.word-list{
+    text-align: center;
+    list-style: none;
+}
+
+.word-buttons{
+
+}
+
+textarea#new-words{    
+    height: 100px;
+    resize: none;
+}
+
+/* Words page style END */

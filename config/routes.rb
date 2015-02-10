@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  get 'words/main'
+
   get 'password_resets/new'
 
   get 'password_resets/edit'
 
   get 'static_pages/index_admin'
+  get 'static_pages/images_words_menu'
 
   #get 'users/new'
 
@@ -37,5 +40,7 @@ Rails.application.routes.draw do
   post 'users/check_email' => 'users#check_email'
 
   post 'password_resets/check_email' => 'password_resets#check_email'
+
+  get 'words/main' => 'words#main'
 
 end
