@@ -13,3 +13,4 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( delete_user.js )
 Rails.application.config.assets.precompile += %w( ajax_functions.js )
 Rails.application.config.assets.precompile += %w( username_email_check_AJAX.js )
+Rails.application.config.assets.precompile += %w( words.js )

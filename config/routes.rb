@@ -42,5 +42,6 @@ Rails.application.routes.draw do
   post 'password_resets/check_email' => 'password_resets#check_email'
 
   get 'words/main' => 'words#main'
+  post 'words/add_words' => 'words#add_words'
 
 end

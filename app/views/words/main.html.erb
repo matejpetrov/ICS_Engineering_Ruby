@@ -1,3 +1,6 @@
+
+<%= javascript_include_tag "words" %>
+
 <%= render 'shared/admin_header' %>
 
 <div class="container">
@@ -16,15 +19,10 @@
 
 				<div class="words-container">
 					
-					<ul id="english" class="word-list">
-
+					<ul id="english" class="word-list-en">												
 						<% @words_english.each do |word| %>
-							<li id="<%= word.id %>">
-								<input type="checkbox" value="<%= word.id %>" />
-								<%= word.word_name %>
-							</li>
-						<% end %>
-
+							<%= render word %>
+						<% end %>			
 					</ul>
 
 				</div>			
@@ -55,13 +53,10 @@
 
 				<div class="words-container">
 					
-					<ul id="macedonian" class="word-list">
+					<ul id="macedonian" class="word-list-mk">
 					
 						<% @words_macedonian.each do |word| %>
-							<li id="<%= word.id %>">
-								<input type="checkbox" value="<%= word.id %>" />
-								<%= word.word_name %>
-							</li>
+							<%= render word %>
 						<% end %>
 
 					</ul>
@@ -73,11 +68,11 @@
 			<div class="row word-buttons">
 				
 				<div class="col-md-3 col-md-offset-3">
-					<button class="btn btn-success" id="add-mk-word">Add Word(s)</button>
+					<button class="btn btn-success" id="add-mk-word" data-toggle="modal" data-target="#modalAddWords">Add Word(s)</button>
 				</div>
 
 				<div class="col-md-3">
-					<button class="btn btn-danger" id="delete-mk-word">Delete Word(s)</button>
+					<button class="btn btn-danger" id="delete-mk-word" data-toggle="modal" data-target="#modalDeleteWords">Delete Word(s)</button>
 				</div>
 
 			</div>
@@ -91,7 +86,7 @@
 </div>
 
 
-<!-- Modal -->
+<!-- MODAL ADD -->
 <div class="modal fade" id="modalAddWords" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -105,16 +100,19 @@
 
 				<textarea class="form-control" id="new-words"></textarea>
 
+				<input type="hidden" id="words_lang" />
+				<input type="hidden" id="add_words_url" value="<%= words_add_words_url %>" />
+
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal" id="delete-cancel-btn">Save</button>
-				<button type="button" class="btn btn-danger" id="delete-user-confirm" data-dismiss="modal">Cancel</button>
+				<button type="button" class="btn btn-default" id="add-cancel-button" data-dismiss="modal">Cancel</button>
+				<button type="button" class="btn btn-success" data-dismiss="modal" id="add-words-confirm">Save</button>			
 			</div>
 		</div>
 	</div>
 </div>
 
-
+<!-- MODAL DELETE -->
 <div class="modal fade" id="modalDeleteWords" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -123,8 +121,7 @@
 				<h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
 			</div>
 			<div class="modal-body">
-				<p>Are you sure you want to delete the selected words?</p>
-				<p>This operation is not reversable...</p>
+				
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal" id="delete-cancel-btn">Close</button>
