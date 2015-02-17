@@ -217,9 +217,42 @@ $(document).ready(function() {
 			console.log("error");
 		});
 		
+	});
 
+
+	$("#check-all-en").on("click", function(){
+
+		$(".word-list-en").find(".word_checkbox").each(function(){
+			$(this).attr("checked", true);
+		});
 
 	});
+
+	$("#uncheck-all-en").on("click", function(){
+
+		$(".word-list-en").find(".word_checkbox").each(function(){
+			$(this).attr("checked", false);
+		});
+
+	});
+
+	$("#check-all-mk").on("click", function(){
+
+		$(".word-list-mk").find(".word_checkbox").each(function(){
+			$(this).attr("checked", true);
+		});
+
+	});
+
+	$("#uncheck-all-mk").on("click", function(){
+
+		$(".word-list-mk").find(".word_checkbox").each(function(){
+			$(this).attr("checked", false);
+		});
+
+	});
+
+	
 
 
 });
