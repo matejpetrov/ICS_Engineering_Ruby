@@ -174,8 +174,14 @@ div.words-separate{
 }
 
 .word-list-en, .word-list-mk{
-    text-align: center;
+    text-align: left;
+    padding-left: 200px;
     list-style: none;
+}
+
+.word-list-en > li, .word-list-mk > li{
+    display: flex;
+    padding-left: 50px;
 }
 
 .word-buttons{

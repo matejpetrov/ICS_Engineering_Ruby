@@ -43,5 +43,6 @@ Rails.application.routes.draw do
 
   get 'words/main' => 'words#main'
   post 'words/add_words' => 'words#add_words'
+  post 'words/delete_words' => 'words#delete_words'
 
 end

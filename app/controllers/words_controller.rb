@@ -46,4 +46,30 @@ class WordsController < ApplicationController
 
   end
 
+
+  def delete_words
+
+    #this is an array that contains the ids of the words that need to be deleted
+    words_to_delete = params[:words]    
+
+    #the method returns the number of affected rows
+    deletion_result = Word.delete_all(["id IN (?)", words_to_delete])
+
+    @json = {}
+
+    if deletion_result > 0
+      @json = { "result" => true }
+    else
+      @json = { "result" => false }
+    end    
+
+    respond_to do |format|
+
+      format.json { render json: @json }
+
+    end
+
+  end
+
+
 end
