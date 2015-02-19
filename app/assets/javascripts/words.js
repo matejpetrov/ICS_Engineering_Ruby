@@ -111,9 +111,9 @@ $(document).ready(function() {
 					
 					$(".word-list-en").html("");
 
-					for(var i=0;i<content.length;i++){												
+					for(var i=0;i<content.length;i++){
 						li_begin = "<li id='"+ content[i].id +"'>";
-							input = "<input type='checkbox' class='en_word_selection[]' value='" + content[i].id  + "' />";
+							input = "<input type='checkbox' class='word_checkbox' value='" + content[i].id  + "' />";
 							label = "<label>" + content[i].word_name + "</label>";
 						li_end = "</li>";
 
@@ -126,7 +126,7 @@ $(document).ready(function() {
 
 					for(var i=0;i<content.length;i++){												
 						li_begin = "<li id='"+ content[i].id +"'>";
-							input = "<input type='checkbox' class='en_word_selection[]' value='" + content[i].id  + "' />";
+							input = "<input type='checkbox' class='word_checkbox' value='" + content[i].id  + "' />";
 							label = "<label>" + content[i].word_name + "</label>";
 						li_end = "</li>";
 
@@ -219,11 +219,19 @@ $(document).ready(function() {
 		
 	});
 
+	
+	/*$(".button-wrapper").on("click", "#check-all-en", function(){
+
+		$(".word-list-en").find(".word_checkbox").each(function(){
+			$(this).attr("checked", true);
+		});
+
+	});*/
 
 	$("#check-all-en").on("click", function(){
 
 		$(".word-list-en").find(".word_checkbox").each(function(){
-			$(this).attr("checked", true);
+			$(this).prop("checked", true);			
 		});
 
 	});
@@ -231,7 +239,7 @@ $(document).ready(function() {
 	$("#uncheck-all-en").on("click", function(){
 
 		$(".word-list-en").find(".word_checkbox").each(function(){
-			$(this).attr("checked", false);
+			$(this).prop("checked", false);
 		});
 
 	});
@@ -239,7 +247,7 @@ $(document).ready(function() {
 	$("#check-all-mk").on("click", function(){
 
 		$(".word-list-mk").find(".word_checkbox").each(function(){
-			$(this).attr("checked", true);
+			$(this).prop("checked", true);
 		});
 
 	});
@@ -247,7 +255,7 @@ $(document).ready(function() {
 	$("#uncheck-all-mk").on("click", function(){
 
 		$(".word-list-mk").find(".word_checkbox").each(function(){
-			$(this).attr("checked", false);
+			$(this).prop("checked", false);
 		});
 
 	});
